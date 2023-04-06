@@ -180,7 +180,7 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
       `);
     }
     componentDidMount() {
-        if (this.ref.current === null) return;
+        if (this.ref.current === null || this.sortable) return;
         const newOptions = this.makeOptions();
         (0, ($parcel$interopDefault($8zHUo$sortablejs))).create(this.ref.current, newOptions);
     }
