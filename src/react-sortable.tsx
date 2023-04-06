@@ -69,7 +69,7 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
   }
 
   componentDidMount(): void {
-    if (this.ref.current === null) return;
+    if (this.ref.current === null || this.sortable) return;
     const newOptions = this.makeOptions();
     Sortable.create(this.ref.current, newOptions);
   }
