@@ -75,8 +75,10 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
   }
 
   componentDidUpdate(prevProps: ReactSortableProps<T>): void {
-    if (prevProps.disabled !== this.props.disabled && this.sortable) {
-      this.sortable.option("disabled", this.props.disabled);
+    const newOptions = this.makeOptions();
+
+    for (const [key, value] of Object.entries(newOptions)) {
+      this.sortable?.option(key as keyof Options, value);
     }
   }
 
